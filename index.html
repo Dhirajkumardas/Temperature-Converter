@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            height: 100vh;
+            /* border: 2px solid black; */
+            background-image: url(https://img.freepik.com/free-vector/realistic-snowfall-background-concept_23-2148387884.jpg?q=10&h=200);
+            background-position: center;
+            background-size: cover;
+
+
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .main{
+            border: 2px solid rgb(0, 0, 0);
+            max-width: 350px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+        }
+        #container {
+            /* border: 2px solid black; */
+            text-align: center;
+            height: 150px;
+            max-width: 350px;
+            min-width: 250px;
+            line-height: 30px;
+            position: relative;
+            /* margin: auto; */
+
+        }
+
+        .inp {
+            background-color: aquamarine;
+            border: 2px solid rgb(0, 0, 0);
+            box-shadow: 2px 2px 2px 2px grey;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .image {
+            height: 150px;
+            /* border: 2px solid red; */
+            width: 50px;
+            background-image: url(https://media1.giphy.com/media/FtCUiJkiaJ3e6l8A4r/giphy.gif?cid=ecf05e47h8vj2gd9tb4chsz9nlxgnfxvr08huz4kvno2p0gn&ep=v1_gifs_search&rid=giphy.gif&ct=g);
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        footer{
+            text-align: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1> Temperature Converter </h1>  <!--Heading-->
+    <div class="main">            <!--main container-->
+        <div class="image"></div> <!--Thermometer gif image-->
+        <div id="container">     <!--input boxes main panel-->
+            <form>
+            <label> Celcius </label>
+            <div class="input1">    <!--Celcius input-->
+                <input type="number" placeholder="0" id="celcius" class="inp">
+            </div>
+            <label>Farenheit</label>
+            <div class="input1">        <!--Farenheit Input-->
+                <input type="number" placeholder="32" id="fah" class="inp">
+            </div>
+            <button type="reset" value="reset">Reset</button>  <!--Reset Button-->
+        </form>
+        </div>
+    </div>
+    <footer>© Dhiraj</footer>
+
+    <script>
+
+        var celcius = document.getElementById("celcius");
+        var Farenheit = document.getElementById("fah");
+
+        celcius.addEventListener("input", function(){
+            let c = this.value;         //to store the value of input in c
+            let f = ((c*9/5) + 32);
+            if(!Number.isInteger(f)){  // if number is not equal to integer then it will go to this condition
+                f = f.toFixed(1);
+            }
+            Farenheit.value = f;
+        });
+        Farenheit.addEventListener("input", function(){
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            if(!Number.isInteger(c)){  // if number is not equal to integer then it will go to this condition
+                c = c.toFixed(3);
+            }
+            celcius.value = c;
+        });
+    </script>
+</body>
+
+</html>
